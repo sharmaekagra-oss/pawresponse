@@ -35,9 +35,9 @@ export default async function NewRequestPage({
 
   if (!serviceable) {
     return (
-      <div className="mx-auto max-w-md px-6 py-10 text-center">
-        <span className="text-4xl">📍</span>
-        <h1 className="mt-2 text-xl font-bold text-slate-900">
+      <div className="mx-auto max-w-md animate-fade-in-up px-6 py-10 text-center">
+        <span className="icon-badge mx-auto h-16 w-16 bg-slate-100 text-4xl">📍</span>
+        <h1 className="mt-3 text-xl font-bold text-slate-900">
           We don&apos;t serve your area yet
         </h1>
         <p className="mt-2 text-sm text-slate-500">
@@ -46,7 +46,7 @@ export default async function NewRequestPage({
         </p>
         <Link
           href="/address?return=/requests/new"
-          className="mt-4 inline-block rounded bg-pink-500 px-4 py-2 font-semibold text-white hover:bg-pink-600"
+          className="btn-press btn-gradient mt-4 inline-block rounded px-4 py-2 font-semibold text-white"
         >
           Update address
         </Link>
@@ -56,11 +56,17 @@ export default async function NewRequestPage({
 
   return (
     <div className="mx-auto max-w-xl animate-fade-in-up px-6 py-8">
-      <h1 className="mb-2 text-2xl font-bold text-red-600">🚨 Request emergency visit</h1>
-      <p className="mb-6 text-sm text-slate-500">
-        A paravet will be notified immediately. Describe what&apos;s happening as
-        clearly as you can.
-      </p>
+      <div className="mb-6 flex items-center gap-3">
+        <span className="icon-badge h-12 w-12 animate-pulse-soft bg-gradient-to-br from-red-100 to-pink-100 text-2xl">
+          🚨
+        </span>
+        <div>
+          <h1 className="text-2xl font-bold text-red-600">Request emergency visit</h1>
+          <p className="text-sm text-slate-500">
+            A paravet will be notified immediately.
+          </p>
+        </div>
+      </div>
       {error && (
         <p className="mb-4 rounded border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700">
           {error}
@@ -138,7 +144,7 @@ export default async function NewRequestPage({
 
         <button
           type="submit"
-          className="btn-press rounded bg-red-600 px-4 py-2 font-semibold text-white hover:bg-red-700"
+          className="btn-press btn-gradient-critical rounded px-4 py-2 font-semibold text-white"
         >
           Send emergency request
         </button>

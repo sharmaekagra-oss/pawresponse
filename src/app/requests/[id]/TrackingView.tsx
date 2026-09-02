@@ -83,9 +83,12 @@ export default function TrackingView({
       </span>
 
       {hasReached ? (
-        <div className="animate-scale-in rounded-lg border border-teal-200 bg-teal-50 px-4 py-3 text-center">
+        <div className="card-lift animate-scale-in rounded-xl border border-teal-200 bg-gradient-to-br from-teal-50 to-emerald-50 px-4 py-4 text-center">
+          <span className="icon-badge mx-auto mb-1 h-10 w-10 bg-white text-xl shadow-sm">
+            🐾
+          </span>
           <p className="font-semibold text-teal-700">
-            🐾 Your paravet has arrived at your location.
+            Your paravet has arrived at your location.
           </p>
           {vetName && (
             <p className="mt-1 text-sm text-teal-600">
@@ -94,10 +97,11 @@ export default function TrackingView({
           )}
         </div>
       ) : showReassurance ? (
-        <div className="animate-scale-in rounded-lg border border-pink-200 bg-pink-50 px-4 py-3 text-center">
-          <p className="font-semibold text-pink-700">
-            🐾 Do not panic, help will be here soon.
-          </p>
+        <div className="card-lift animate-scale-in rounded-xl border border-pink-200 bg-gradient-to-br from-pink-50 to-rose-50 px-4 py-4 text-center">
+          <span className="icon-badge mx-auto mb-1 h-10 w-10 bg-white text-xl shadow-sm">
+            🐾
+          </span>
+          <p className="font-semibold text-pink-700">Do not panic, help will be here soon.</p>
           {vetName && (
             <p className="mt-1 text-sm text-pink-600">
               {vetName} {vetPhone && `(${vetPhone})`} has been assigned to you.
@@ -110,14 +114,14 @@ export default function TrackingView({
           )}
         </div>
       ) : live.status === "pending" ? (
-        <div className="flex flex-col items-center gap-1 rounded-lg border border-slate-200 bg-slate-50 px-4 py-4 text-center text-sm text-slate-600">
+        <div className="flex flex-col items-center gap-1 rounded-xl border border-slate-200 bg-slate-50 px-4 py-4 text-center text-sm text-slate-600">
           <span className="animate-pulse-soft text-2xl">🐾</span>
           A paravet will accept your request very soon and call you immediately to
           assess the situation.
         </div>
       ) : null}
 
-      <div className="h-72 w-full overflow-hidden rounded-lg border border-slate-200 shadow-sm">
+      <div className="card-lift h-72 w-full overflow-hidden rounded-xl border border-slate-200 shadow-sm">
         <LeafletMap
           center={center}
           zoom={hasVetPosition ? 14 : 12}

@@ -39,13 +39,18 @@ export default async function RequestTrackingPage({ params }: PageProps<"/reques
   const row = req as unknown as RequestRow;
 
   return (
-    <div className="mx-auto max-w-2xl px-6 py-8">
-      <Link href="/requests" className="text-sm text-pink-600 hover:underline">
+    <div className="mx-auto max-w-2xl animate-fade-in-up px-6 py-8">
+      <Link href="/requests" className="nav-link w-fit text-sm text-pink-600 hover:underline">
         ← Back to requests
       </Link>
-      <h1 className="mt-2 mb-1 text-2xl font-bold text-slate-900">
-        {row.pets.name}&apos;s emergency
-      </h1>
+      <div className="mt-3 mb-2 flex items-center gap-3">
+        <span className="icon-badge h-11 w-11 bg-gradient-to-br from-pink-100 to-rose-100 text-xl">
+          🐾
+        </span>
+        <h1 className="text-2xl font-bold text-slate-900">
+          {row.pets.name}&apos;s emergency
+        </h1>
+      </div>
       <p className="mb-2 text-sm text-slate-500">{row.description}</p>
       {row.photo_url && (
         // eslint-disable-next-line @next/next/no-img-element
@@ -161,7 +166,7 @@ export default async function RequestTrackingPage({ params }: PageProps<"/reques
         href={`mailto:support@pawresponse.app?subject=${encodeURIComponent(
           `Help with request ${row.id}`,
         )}`}
-        className="mt-6 inline-flex items-center gap-2 rounded border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+        className="btn-press card-lift mt-6 inline-flex items-center gap-2 rounded border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
       >
         💬 Contact Support
       </a>

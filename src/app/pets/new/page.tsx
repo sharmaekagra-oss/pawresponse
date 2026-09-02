@@ -20,13 +20,15 @@ export default async function NewPetOnboardingPage({
   if (added) {
     return (
       <div className="mx-auto flex min-h-[70vh] max-w-sm animate-scale-in flex-col justify-center gap-6 px-4 text-center">
-        <span className="text-6xl">🐾</span>
+        <span className="icon-badge mx-auto h-20 w-20 bg-gradient-to-br from-pink-100 to-rose-100 text-6xl">
+          🐾
+        </span>
         <h1 className="text-2xl font-bold text-slate-900">Pet added 🎉</h1>
         <p className="text-slate-500">Want to add another pet now?</p>
         <div className="flex flex-col gap-3">
           <Link
             href="/pets/new"
-            className="btn-press rounded bg-pink-500 px-4 py-2 font-semibold text-white hover:bg-pink-600"
+            className="btn-press btn-gradient rounded px-4 py-2 font-semibold text-white"
           >
             Add another pet
           </Link>
@@ -44,13 +46,20 @@ export default async function NewPetOnboardingPage({
   return (
     <div className="mx-auto max-w-xl animate-fade-in-up px-6 py-10">
       <BackButton href="/address" />
-      <h1 className="mb-2 text-2xl font-bold text-slate-900">Add your first pet</h1>
-      <p className="mb-6 text-sm text-slate-500">
-        We need at least one pet on file before you can request an emergency visit.
-      </p>
+      <div className="mb-6 flex items-center gap-3">
+        <span className="icon-badge h-12 w-12 bg-gradient-to-br from-pink-100 to-rose-100 text-2xl">
+          🐾
+        </span>
+        <div>
+          <h1 className="text-2xl font-bold text-slate-900">Add your first pet</h1>
+          <p className="text-sm text-slate-500">
+            We need at least one pet on file before you can request an emergency visit.
+          </p>
+        </div>
+      </div>
       <form
         action={createPetOnboarding}
-        className="grid gap-3 rounded-lg border border-pink-100 bg-pink-50/40 p-5 sm:grid-cols-2"
+        className="grid gap-3 rounded-2xl border border-pink-100 bg-gradient-to-br from-pink-50/60 to-rose-50/40 p-5 shadow-sm sm:grid-cols-2"
       >
         <input
           name="name"
@@ -66,7 +75,7 @@ export default async function NewPetOnboardingPage({
         />
         <button
           type="submit"
-          className="rounded bg-pink-500 px-4 py-2 font-semibold text-white hover:bg-pink-600 sm:col-span-2"
+          className="btn-press btn-gradient rounded px-4 py-2 font-semibold text-white sm:col-span-2"
         >
           Add pet
         </button>

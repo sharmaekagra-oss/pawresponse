@@ -45,10 +45,15 @@ export default async function RequestsPage() {
   return (
     <div className="mx-auto max-w-2xl animate-fade-in-up px-6 py-8">
       <div className="mb-6 flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-slate-900">My Requests</h1>
+        <div className="flex items-center gap-3">
+          <span className="icon-badge h-10 w-10 bg-gradient-to-br from-sky-100 to-purple-100 text-xl">
+            📋
+          </span>
+          <h1 className="text-2xl font-bold text-slate-900">My Requests</h1>
+        </div>
         <Link
           href="/requests/new"
-          className="btn-press rounded bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-700"
+          className="btn-press btn-gradient-critical rounded px-4 py-2 text-sm font-semibold text-white"
         >
           🚨 New request
         </Link>
@@ -67,10 +72,10 @@ export default async function RequestsPage() {
         </div>
       ) : (
         <div className="flex flex-col gap-4">
-          {(requests as unknown as RequestRow[]).map((req) => (
+          {(requests as unknown as RequestRow[]).map((req, i) => (
             <div
               key={req.id}
-              className={`card-lift rounded-lg border border-slate-200 bg-white p-4 shadow-sm ${URGENCY_BORDER[req.urgency]}`}
+              className={`card-lift animate-fade-in-up stagger-${Math.min(i, 5)} rounded-lg border border-slate-200 bg-white p-4 shadow-sm ${URGENCY_BORDER[req.urgency]}`}
             >
               <div className="mb-2 flex flex-wrap items-center gap-2">
                 <span
@@ -132,7 +137,7 @@ export default async function RequestsPage() {
                 {req.status !== "resolved" && req.status !== "cancelled" && (
                   <Link
                     href={`/requests/${req.id}`}
-                    className="w-fit rounded bg-pink-500 px-3 py-1 text-xs font-semibold text-white hover:bg-pink-600"
+                    className="btn-press btn-gradient w-fit rounded px-3 py-1 text-xs font-semibold text-white"
                   >
                     Track
                   </Link>

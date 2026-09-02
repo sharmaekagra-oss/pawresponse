@@ -124,9 +124,15 @@ export default function AddressCaptureForm({
         type="button"
         onClick={useMyLocation}
         disabled={locating}
-        className="flex items-center justify-center gap-2 rounded border border-pink-300 bg-pink-50 px-3 py-2 font-semibold text-pink-700 hover:bg-pink-100 disabled:opacity-60"
+        className="btn-press flex items-center justify-center gap-2 rounded border border-pink-300 bg-gradient-to-r from-pink-50 to-rose-50 px-3 py-2 font-semibold text-pink-700 hover:from-pink-100 hover:to-rose-100 disabled:opacity-60"
       >
-        {locating ? "Locating..." : "📍 Use my current location"}
+        {locating ? (
+          <>
+            <span className="animate-pulse-soft">📍</span> Locating...
+          </>
+        ) : (
+          "📍 Use my current location"
+        )}
       </button>
       {locateError && <p className="text-sm text-red-600">{locateError}</p>}
 
@@ -222,15 +228,17 @@ export default function AddressCaptureForm({
       </div>
 
       {service === "checking" && (
-        <p className="text-sm text-slate-500">Checking service availability...</p>
+        <p className="animate-pulse-soft text-sm text-slate-500">
+          Checking service availability...
+        </p>
       )}
       {service === "available" && (
-        <p className="rounded border border-green-200 bg-green-50 px-3 py-2 text-sm text-green-700">
+        <p className="animate-scale-in rounded border border-green-200 bg-green-50 px-3 py-2 text-sm text-green-700">
           ✅ We currently serve this area.
         </p>
       )}
       {service === "unavailable" && (
-        <p className="rounded border border-yellow-300 bg-yellow-50 px-3 py-2 text-sm text-yellow-800">
+        <p className="animate-scale-in rounded border border-yellow-300 bg-yellow-50 px-3 py-2 text-sm text-yellow-800">
           ⚠️ We don&apos;t currently serve this area yet. You can still save this
           address, but emergency requests won&apos;t be available here.
         </p>
@@ -238,7 +246,7 @@ export default function AddressCaptureForm({
 
       <button
         type="submit"
-        className="rounded bg-pink-500 px-3 py-2 font-semibold text-white hover:bg-pink-600"
+        className="btn-press btn-gradient rounded px-3 py-2 font-semibold text-white"
       >
         Save address
       </button>

@@ -82,7 +82,12 @@ export default async function QueuePage({
         </p>
       )}
       <div className="mb-6 flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-slate-900">Dispatch Queue</h1>
+        <div className="flex items-center gap-3">
+          <span className="icon-badge h-10 w-10 bg-gradient-to-br from-orange-100 to-pink-100 text-xl">
+            🚑
+          </span>
+          <h1 className="text-2xl font-bold text-slate-900">Dispatch Queue</h1>
+        </div>
         <form action={toggleAvailability}>
           <input type="hidden" name="is_available" value={String(profile.is_available)} />
           <button
@@ -104,10 +109,10 @@ export default async function QueuePage({
           <p className="text-slate-500">No pending requests right now.</p>
         ) : (
           <div className="flex flex-col gap-3">
-            {(openQueue as unknown as RequestRow[]).map((req) => (
+            {(openQueue as unknown as RequestRow[]).map((req, i) => (
               <div
                 key={req.id}
-                className={`card-lift rounded-lg border border-slate-200 bg-white p-4 shadow-sm ${URGENCY_BORDER[req.urgency]}`}
+                className={`card-lift animate-fade-in-up stagger-${Math.min(i, 5)} rounded-lg border border-slate-200 bg-white p-4 shadow-sm ${URGENCY_BORDER[req.urgency]}`}
               >
                 <div className="mb-2 flex flex-wrap items-center gap-2">
                   <span
@@ -136,7 +141,7 @@ export default async function QueuePage({
                   <input type="hidden" name="id" value={req.id} />
                   <button
                     type="submit"
-                    className="btn-press rounded bg-pink-500 px-3 py-1.5 text-sm font-semibold text-white hover:bg-pink-600"
+                    className="btn-press btn-gradient rounded px-3 py-1.5 text-sm font-semibold text-white"
                   >
                     Accept case
                   </button>
@@ -153,10 +158,11 @@ export default async function QueuePage({
           <p className="text-slate-500">Nothing assigned to you right now.</p>
         ) : (
           <div className="flex flex-col gap-3">
-            {(mine as unknown as RequestRow[]).map((req) => (
+            {(mine as unknown as RequestRow[]).map((req, i) => (
               <div
+                style={{ animationDelay: `${Math.min(i, 5) * 60}ms` }}
                 key={req.id}
-                className={`card-lift rounded-lg border border-slate-200 bg-white p-4 shadow-sm ${URGENCY_BORDER[req.urgency]}`}
+                className={`card-lift animate-fade-in-up rounded-lg border border-slate-200 bg-white p-4 shadow-sm ${URGENCY_BORDER[req.urgency]}`}
               >
                 <div className="mb-2 flex flex-wrap items-center gap-2">
                   <span
