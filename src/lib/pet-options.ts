@@ -1,0 +1,87 @@
+export const SPECIES_OPTIONS = [
+  "Dog",
+  "Cat",
+  "Bird",
+  "Rabbit",
+  "Hamster",
+  "Guinea Pig",
+  "Fish",
+  "Reptile",
+  "Other",
+] as const;
+
+export const BREED_OPTIONS: Record<string, string[]> = {
+  Dog: [
+    "Labrador Retriever",
+    "Golden Retriever",
+    "German Shepherd",
+    "Beagle",
+    "Poodle",
+    "Bulldog",
+    "Rottweiler",
+    "Dachshund",
+    "Boxer",
+    "Shih Tzu",
+    "Pug",
+    "Chihuahua",
+    "Doberman",
+    "Great Dane",
+    "Indian Pariah Dog",
+    "Mixed Breed",
+    "Other",
+  ],
+  Cat: [
+    "Persian",
+    "Siamese",
+    "Maine Coon",
+    "British Shorthair",
+    "Ragdoll",
+    "Bengal",
+    "Sphynx",
+    "Himalayan",
+    "Domestic Shorthair",
+    "Domestic Longhair",
+    "Other",
+  ],
+  Bird: [
+    "Budgerigar (Budgie)",
+    "Cockatiel",
+    "Lovebird",
+    "Parakeet",
+    "African Grey Parrot",
+    "Macaw",
+    "Canary",
+    "Finch",
+    "Other",
+  ],
+  Rabbit: [
+    "Holland Lop",
+    "Netherland Dwarf",
+    "Rex",
+    "Angora",
+    "Dutch",
+    "Lionhead",
+    "Other",
+  ],
+  Hamster: ["Syrian", "Dwarf Campbell", "Roborovski", "Chinese", "Other"],
+  "Guinea Pig": ["American", "Abyssinian", "Peruvian", "Silkie", "Other"],
+  Fish: ["Goldfish", "Betta", "Guppy", "Molly", "Tetra", "Angelfish", "Other"],
+  Reptile: [
+    "Bearded Dragon",
+    "Leopard Gecko",
+    "Ball Python",
+    "Red-Eared Slider Turtle",
+    "Iguana",
+    "Other",
+  ],
+  Other: ["Other"],
+};
+
+export const AGE_OPTIONS = [
+  { value: "0", label: "<1 year (puppy/kitten)" },
+  ...Array.from({ length: 19 }, (_, i) => {
+    const year = i + 1;
+    return { value: String(year), label: `${year} year${year > 1 ? "s" : ""}` };
+  }),
+  { value: "20", label: "20+ years" },
+];

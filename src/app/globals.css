@@ -1,0 +1,226 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fffbfd;
+  --foreground: #3f3a45;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Subtle repeating paw-print motif, used sparingly as a background texture. */
+.paw-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Cg fill='%23f9a8d4' fill-opacity='0.16'%3E%3Cellipse cx='48' cy='62' rx='13' ry='10'/%3E%3Cellipse cx='29' cy='45' rx='6' ry='7.5'/%3E%3Cellipse cx='40' cy='33' rx='6' ry='7.5'/%3E%3Cellipse cx='56' cy='33' rx='6' ry='7.5'/%3E%3Cellipse cx='67' cy='45' rx='6' ry='7.5'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 96px 96px;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-in-up {
+  animation: fade-in-up 0.35s ease-out both;
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.animate-scale-in {
+  animation: scale-in 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes wag {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-12deg);
+  }
+  75% {
+    transform: rotate(12deg);
+  }
+}
+.hover\:animate-wag:hover {
+  animation: wag 0.4s ease-in-out;
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+.animate-pulse-soft {
+  animation: pulse-soft 1.8s ease-in-out infinite;
+}
+
+@keyframes marker-ping {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+.marker-ping::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: rgba(20, 184, 166, 0.5);
+  animation: marker-ping 1.6s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.card-lift {
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    border-color 0.15s ease;
+}
+.card-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -8px rgba(219, 39, 119, 0.18);
+}
+
+.btn-press {
+  transition:
+    transform 0.1s ease,
+    background-color 0.15s ease;
+}
+.btn-press:active {
+  transform: scale(0.96);
+}
+
+/* Rich gradient CTA — the app's primary "action" surface. */
+.btn-gradient {
+  background-image: linear-gradient(135deg, #ec4899, #f43f5e);
+  background-size: 160% 160%;
+  background-position: 0% 50%;
+  transition:
+    background-position 0.4s ease,
+    transform 0.1s ease,
+    box-shadow 0.2s ease;
+  box-shadow: 0 4px 14px -4px rgba(219, 39, 119, 0.45);
+}
+.btn-gradient:hover {
+  background-position: 100% 50%;
+  box-shadow: 0 6px 18px -4px rgba(219, 39, 119, 0.55);
+}
+.btn-gradient:active {
+  transform: scale(0.97);
+}
+
+.btn-gradient-critical {
+  background-image: linear-gradient(135deg, #dc2626, #ec4899);
+  background-size: 160% 160%;
+  background-position: 0% 50%;
+  transition:
+    background-position 0.4s ease,
+    transform 0.1s ease,
+    box-shadow 0.2s ease;
+  box-shadow: 0 4px 14px -4px rgba(220, 38, 38, 0.45);
+}
+.btn-gradient-critical:hover {
+  background-position: 100% 50%;
+  box-shadow: 0 6px 18px -4px rgba(220, 38, 38, 0.55);
+}
+.btn-gradient-critical:active {
+  transform: scale(0.97);
+}
+
+.text-gradient {
+  background-image: linear-gradient(135deg, #db2777, #f43f5e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Circular icon badge, used for a consistent "app-like" icon language. */
+.icon-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  flex-shrink: 0;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+.animate-shimmer {
+  background: linear-gradient(90deg, #fdf2f8 25%, #fce7f3 37%, #fdf2f8 63%);
+  background-size: 400% 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+
+/* Staggered list-entrance delays — pair with .animate-fade-in-up. */
+.stagger-0 {
+  animation-delay: 0ms;
+}
+.stagger-1 {
+  animation-delay: 60ms;
+}
+.stagger-2 {
+  animation-delay: 120ms;
+}
+.stagger-3 {
+  animation-delay: 180ms;
+}
+.stagger-4 {
+  animation-delay: 240ms;
+}
+.stagger-5 {
+  animation-delay: 300ms;
+}
+
+/* Animated underline for nav links. */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(90deg, #ec4899, #f43f5e);
+  transition: width 0.2s ease;
+  border-radius: 9999px;
+}
+.nav-link:hover::after {
+  width: 100%;
+}
