@@ -1,17 +1,19 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Fredoka, Nunito } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
 import { getCurrentProfile } from "@/lib/current-user";
 import { logout } from "@/app/auth/actions";
+import PawMark from "@/components/PawMark";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const fredoka = Fredoka({
+  variable: "--font-display",
   subsets: ["latin"],
+  weight: ["500", "600", "700"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const nunito = Nunito({
+  variable: "--font-body",
   subsets: ["latin"],
 });
 
@@ -26,17 +28,17 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${fredoka.variable} ${nunito.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-white text-slate-700">
-        <header className="sticky top-0 z-10 border-b border-pink-100 bg-white/90 px-6 py-4 backdrop-blur-sm">
+      <body className="min-h-full flex flex-col bg-cream text-slate-700">
+        <header className="sticky top-0 z-10 border-b border-pink-100 bg-cream/90 px-6 py-4 backdrop-blur-sm">
           <nav className="mx-auto flex max-w-5xl items-center justify-between">
             <Link
               href="/"
               className="flex items-center gap-2 text-lg font-bold tracking-tight text-slate-900"
             >
-              <span className="icon-badge hover:animate-wag h-8 w-8 bg-gradient-to-br from-pink-100 to-rose-100 text-base">
-                🐾
+              <span className="tilt--3 hover:animate-wag inline-flex h-9 w-9 items-center justify-center">
+                <PawMark className="h-8 w-8 text-pink-500" />
               </span>
               <span className="text-gradient">PawResponse</span>
             </Link>
@@ -84,7 +86,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
             </div>
           </nav>
         </header>
-        <main className="paw-pattern flex-1 bg-white">{children}</main>
+        <main className="paw-pattern flex-1 bg-cream">{children}</main>
       </body>
     </html>
   );

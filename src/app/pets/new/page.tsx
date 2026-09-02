@@ -4,6 +4,7 @@ import { getCurrentProfile } from "@/lib/current-user";
 import { createPetOnboarding } from "@/app/pets/actions";
 import PetFields from "@/app/pets/PetFields";
 import BackButton from "@/app/auth/BackButton";
+import PawMark from "@/components/PawMark";
 
 export default async function NewPetOnboardingPage({
   searchParams,
@@ -20,8 +21,8 @@ export default async function NewPetOnboardingPage({
   if (added) {
     return (
       <div className="mx-auto flex min-h-[70vh] max-w-sm animate-scale-in flex-col justify-center gap-6 px-4 text-center">
-        <span className="icon-badge mx-auto h-20 w-20 bg-gradient-to-br from-pink-100 to-rose-100 text-6xl">
-          🐾
+        <span className="icon-badge tilt-3 mx-auto h-20 w-20 bg-gradient-to-br from-pink-100 to-rose-100">
+          <PawMark className="h-12 w-12 text-pink-500" />
         </span>
         <h1 className="text-2xl font-bold text-slate-900">Pet added 🎉</h1>
         <p className="text-slate-500">Want to add another pet now?</p>
@@ -47,8 +48,8 @@ export default async function NewPetOnboardingPage({
     <div className="mx-auto max-w-xl animate-fade-in-up px-6 py-10">
       <BackButton href="/address" />
       <div className="mb-6 flex items-center gap-3">
-        <span className="icon-badge h-12 w-12 bg-gradient-to-br from-pink-100 to-rose-100 text-2xl">
-          🐾
+        <span className="icon-badge tilt--2 h-12 w-12 bg-gradient-to-br from-pink-100 to-rose-100">
+          <PawMark className="h-6 w-6 text-pink-500" />
         </span>
         <div>
           <h1 className="text-2xl font-bold text-slate-900">Add your first pet</h1>

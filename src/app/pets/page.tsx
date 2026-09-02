@@ -5,6 +5,7 @@ import { getCurrentProfile } from "@/lib/current-user";
 import type { Pet } from "@/lib/types";
 import { updatePet, deletePet } from "@/app/pets/actions";
 import PetFields from "@/app/pets/PetFields";
+import PawMark from "@/components/PawMark";
 
 export default async function PetsPage() {
   const profile = await getCurrentProfile();
@@ -22,8 +23,8 @@ export default async function PetsPage() {
     <div className="mx-auto max-w-3xl animate-fade-in-up px-6 py-8">
       <div className="mb-6 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <span className="icon-badge h-10 w-10 bg-gradient-to-br from-pink-100 to-rose-100 text-xl">
-            🐾
+          <span className="icon-badge tilt--2 h-10 w-10 bg-gradient-to-br from-pink-100 to-rose-100">
+            <PawMark className="h-5 w-5 text-pink-500" />
           </span>
           <h1 className="text-2xl font-bold text-slate-900">My Pets</h1>
         </div>

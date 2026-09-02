@@ -4,6 +4,7 @@ import GoogleButton from "@/app/auth/GoogleButton";
 import NameFields from "@/app/auth/NameFields";
 import PhoneField from "@/app/auth/PhoneField";
 import BackButton from "@/app/auth/BackButton";
+import PawMark from "@/components/PawMark";
 
 export default async function SignupPage({
   searchParams,
@@ -35,8 +36,8 @@ export default async function SignupPage({
       <BackButton />
       <div className="rounded-2xl border border-pink-100 bg-white p-6 shadow-sm">
         <div className="mb-6 flex flex-col items-center gap-2 text-center">
-          <span className="icon-badge hover:animate-wag h-12 w-12 bg-gradient-to-br from-pink-100 to-rose-100 text-2xl">
-            🐾
+          <span className="icon-badge tilt-2 hover:animate-wag h-12 w-12 bg-gradient-to-br from-pink-100 to-rose-100">
+            <PawMark className="h-6 w-6 text-pink-500" />
           </span>
           <h1 className="text-2xl font-bold text-slate-900">Sign up</h1>
         </div>
