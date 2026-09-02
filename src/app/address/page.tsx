@@ -19,10 +19,12 @@ export default async function AddressPage({
       <BackButton href="/onboarding" />
       <div className="rounded-2xl border border-pink-100 bg-white p-6 shadow-sm">
         <div className="mb-6 flex flex-col items-center gap-2 text-center">
-          <span className="icon-badge h-12 w-12 bg-gradient-to-br from-pink-100 to-rose-100 text-2xl">
+          <span className="icon-badge tilt-3 h-12 w-12 !rounded-2xl bg-gradient-to-br from-pink-100 to-rose-100 text-2xl">
             📍
           </span>
-          <h1 className="text-2xl font-bold text-slate-900">Your address</h1>
+          <h1 className="text-2xl font-bold text-slate-900 underline-squiggle">
+            Your address
+          </h1>
           <p className="text-sm text-slate-500">
             Saved once so you never have to type it during an emergency.
           </p>

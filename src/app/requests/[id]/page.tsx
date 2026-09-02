@@ -12,6 +12,7 @@ import {
 } from "@/lib/types";
 import { formatFee } from "@/lib/pricing";
 import TrackingView from "@/app/requests/[id]/TrackingView";
+import PawMark from "@/components/PawMark";
 
 type RequestRow = EmergencyRequest & {
   pets: Pet;
@@ -44,8 +45,8 @@ export default async function RequestTrackingPage({ params }: PageProps<"/reques
         ← Back to requests
       </Link>
       <div className="mt-3 mb-2 flex items-center gap-3">
-        <span className="icon-badge h-11 w-11 bg-gradient-to-br from-pink-100 to-rose-100 text-xl">
-          🐾
+        <span className="icon-badge tilt--3 h-11 w-11 bg-gradient-to-br from-pink-100 to-rose-100">
+          <PawMark className="h-5 w-5 text-pink-500" />
         </span>
         <h1 className="text-2xl font-bold text-slate-900">
           {row.pets.name}&apos;s emergency

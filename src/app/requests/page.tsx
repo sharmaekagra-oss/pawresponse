@@ -46,10 +46,10 @@ export default async function RequestsPage() {
     <div className="mx-auto max-w-2xl animate-fade-in-up px-6 py-8">
       <div className="mb-6 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <span className="icon-badge h-10 w-10 bg-gradient-to-br from-sky-100 to-purple-100 text-xl">
+          <span className="icon-badge tilt--2 h-10 w-10 !rounded-2xl bg-gradient-to-br from-sky-100 to-purple-100 text-xl">
             📋
           </span>
-          <h1 className="text-2xl font-bold text-slate-900">My Requests</h1>
+          <h1 className="text-2xl font-bold text-slate-900 underline-squiggle">My Requests</h1>
         </div>
         <Link
           href="/requests/new"

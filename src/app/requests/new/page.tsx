@@ -57,7 +57,7 @@ export default async function NewRequestPage({
   return (
     <div className="mx-auto max-w-xl animate-fade-in-up px-6 py-8">
       <div className="mb-6 flex items-center gap-3">
-        <span className="icon-badge h-12 w-12 animate-pulse-soft bg-gradient-to-br from-red-100 to-pink-100 text-2xl">
+        <span className="icon-badge tilt--3 h-12 w-12 animate-pulse-soft bg-gradient-to-br from-red-100 to-pink-100 text-2xl">
           🚨
         </span>
         <div>

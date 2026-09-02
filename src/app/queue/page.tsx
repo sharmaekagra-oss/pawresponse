@@ -83,10 +83,12 @@ export default async function QueuePage({
       )}
       <div className="mb-6 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <span className="icon-badge h-10 w-10 bg-gradient-to-br from-orange-100 to-pink-100 text-xl">
+          <span className="icon-badge tilt-2 h-10 w-10 !rounded-2xl bg-gradient-to-br from-orange-100 to-pink-100 text-xl">
             🚑
           </span>
-          <h1 className="text-2xl font-bold text-slate-900">Dispatch Queue</h1>
+          <h1 className="text-2xl font-bold text-slate-900 underline-squiggle">
+            Dispatch Queue
+          </h1>
         </div>
         <form action={toggleAvailability}>
           <input type="hidden" name="is_available" value={String(profile.is_available)} />
