@@ -36,6 +36,15 @@ export async function signup(formData: FormData) {
     redirect(`/signup?error=${encodeURIComponent(error.message)}`);
   }
 
+  // Supabase returns a fake "success" (no error) for an email that's already
+  // registered, to avoid leaking which emails exist — but the giveaway is an
+  // empty identities array, since no new identity was actually created.
+  if (data.user && data.user.identities?.length === 0) {
+    redirect(
+      `/signup?error=${encodeURIComponent("This email is already registered. Try logging in instead.")}`,
+    );
+  }
+
   if (!data.session) {
     redirect("/signup?success=1");
   }
