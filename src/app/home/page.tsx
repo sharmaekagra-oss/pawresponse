@@ -4,6 +4,8 @@ import { getCurrentProfile } from "@/lib/current-user";
 import { createClient } from "@/lib/supabase/server";
 import { isServiceableArea } from "@/lib/service-area";
 import type { Pet } from "@/lib/types";
+import { AlertMark, PinMark, ClipboardMark } from "@/components/icons";
+import PawMark from "@/components/PawMark";
 
 export default async function OwnerHomePage() {
   const profile = await getCurrentProfile();
@@ -48,8 +50,8 @@ export default async function OwnerHomePage() {
           <span className="pointer-events-none absolute -bottom-6 -left-4 text-6xl opacity-10">
             🐾
           </span>
-          <span className="icon-badge tilt--2 h-16 w-16 animate-pulse-soft bg-white text-4xl shadow-sm">
-            🚨
+          <span className="icon-badge tilt--2 h-16 w-16 animate-pulse-soft bg-white shadow-sm">
+            <AlertMark className="h-9 w-9 text-red-500" />
           </span>
           <span className="text-xl font-bold text-red-700">Request Emergency Visit</span>
           <span className="text-sm text-red-600">
@@ -58,7 +60,9 @@ export default async function OwnerHomePage() {
         </Link>
       ) : (
         <div className="mb-8 flex flex-col items-center gap-2 rounded-xl border-2 border-slate-200 bg-slate-50 px-6 py-10 text-center">
-          <span className="icon-badge h-16 w-16 bg-white text-4xl shadow-sm">📍</span>
+          <span className="icon-badge h-16 w-16 bg-white shadow-sm">
+            <PinMark className="h-9 w-9 text-slate-400" />
+          </span>
           <span className="text-xl font-bold text-slate-700">Not available in your area yet</span>
           <span className="text-sm text-slate-500">
             We don&apos;t currently dispatch paravets to your saved address.
@@ -74,8 +78,8 @@ export default async function OwnerHomePage() {
           href="/pets"
           className="tilt-hover flex flex-col items-center gap-2 rounded-2xl rounded-tr-md border border-slate-200 bg-white px-4 py-5 text-center shadow-sm hover:border-pink-300"
         >
-          <span className="icon-badge tilt--2 h-10 w-10 bg-gradient-to-br from-pink-100 to-rose-100 text-xl">
-            🐾
+          <span className="icon-badge tilt--2 h-10 w-10 bg-gradient-to-br from-pink-100 to-rose-100">
+            <PawMark className="h-5 w-5 text-pink-500" />
           </span>
           <span className="block text-lg font-semibold text-slate-900">My Pets</span>
           <span className="text-sm text-slate-500">
@@ -86,8 +90,8 @@ export default async function OwnerHomePage() {
           href="/requests"
           className="tilt-hover flex flex-col items-center gap-2 rounded-2xl rounded-bl-md border border-slate-200 bg-white px-4 py-5 text-center shadow-sm hover:border-pink-300"
         >
-          <span className="icon-badge tilt-2 h-10 w-10 bg-gradient-to-br from-sky-100 to-purple-100 text-xl">
-            📋
+          <span className="icon-badge tilt-2 h-10 w-10 bg-gradient-to-br from-sky-100 to-purple-100">
+            <ClipboardMark className="h-5 w-5 text-purple-500" />
           </span>
           <span className="block text-lg font-semibold text-slate-900">My Requests</span>
           <span className="text-sm text-slate-500">Track status &amp; history</span>

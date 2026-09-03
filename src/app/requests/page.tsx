@@ -16,6 +16,7 @@ import {
 } from "@/lib/types";
 import CancelRequestButton from "@/app/requests/CancelRequestButton";
 import { formatFee } from "@/lib/pricing";
+import { ClipboardMark, AlertMark } from "@/components/icons";
 
 type RequestRow = EmergencyRequest & {
   pets: Pet;
@@ -46,16 +47,17 @@ export default async function RequestsPage() {
     <div className="mx-auto max-w-2xl animate-fade-in-up px-6 py-8">
       <div className="mb-6 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <span className="icon-badge tilt--2 h-10 w-10 !rounded-2xl bg-gradient-to-br from-sky-100 to-purple-100 text-xl">
-            📋
+          <span className="icon-badge tilt--2 h-10 w-10 !rounded-2xl bg-gradient-to-br from-sky-100 to-purple-100">
+            <ClipboardMark className="h-5 w-5 text-purple-500" />
           </span>
           <h1 className="text-2xl font-bold text-slate-900 underline-squiggle">My Requests</h1>
         </div>
         <Link
           href="/requests/new"
-          className="btn-press btn-gradient-critical rounded px-4 py-2 text-sm font-semibold text-white"
+          className="btn-press btn-gradient-critical flex items-center gap-1.5 rounded px-4 py-2 text-sm font-semibold text-white"
         >
-          🚨 New request
+          <AlertMark className="h-4 w-4" />
+          New request
         </Link>
       </div>
 
